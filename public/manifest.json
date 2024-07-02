@@ -1,0 +1,12 @@
+{
+    "manifest_version": 3,
+    "name": "TabGuard",
+    "description": "TabGuard: Secure your Chrome browsing experience by locking and password-protecting your tabs and sites. With TabGuard, your privacy is always a priority. Ensure sensitive information stays secure and accessible only to you.",
+    "version": "1.0.0",
+    "author": "Muhamamd Saim",
+    "action": {
+        "default_popup": "index.html"
+    },
+    "permissions": ["scripting", "tabs", "storage", "activeTab"],
+    "host_permissions": ["https://*/*", "http://*/*"]
+}
