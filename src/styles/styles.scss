@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    body {
+        @apply min-w-[300px] min-h-[500px] bg-slate-900 text-white py-10 px-5;
+    }
+}
