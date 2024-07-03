@@ -1,10 +1,23 @@
-import { useState } from 'react';
 import './App.css';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 
 function App() {
-    const [count, setCount] = useState(0);
+    const handleClick = async () => {
+        let [tab] = await chrome.tabs.query({
+            active: true,
+            currentWindow: true,
+        });
+        console.log(tab);
+
+        chrome.scripting.executeScript({
+            target: { tabId: tab.id! },
+            func: () => {
+                alert('Hello from my extension');
+            },
+        });
+        console.log('Click is clicked');
+    };
 
     return (
         <>
@@ -22,9 +35,7 @@ function App() {
             </div>
             <h1>Vite + React</h1>
             <div className="card">
-                <button onClick={() => setCount((count) => count + 1)}>
-                    count is {count}
-                </button>
+                <button onClick={handleClick}>Click</button>
                 <p>
                     Edit <code>src/App.tsx</code> and save to test HMR
                 </p>
