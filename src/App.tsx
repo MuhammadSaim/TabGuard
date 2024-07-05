@@ -1,3 +1,4 @@
+import { Button } from '@chakra-ui/react';
 import { useState } from 'react';
 import Controls from './components/shared/Controls';
 import List from './components/shared/List';
@@ -29,12 +30,9 @@ const App = () => {
         <div className="bg-slate-900 text-white">
             {list ? <List /> : <Controls />}
             <div className="text-center py-10">
-                <button
-                    onClick={switchList}
-                    // className="bg-white text-slate-900 px-3 py-4"
-                >
+                <Button onClick={switchList} colorScheme="green">
                     {list ? 'Show controls' : 'Show List'}
-                </button>
+                </Button>
             </div>
         </div>
     );
