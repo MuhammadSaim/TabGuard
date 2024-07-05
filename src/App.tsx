@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Controls from './components/shared/Controls';
 import List from './components/shared/List';
-import { Button } from './components/ui/button';
 
 const App = () => {
     const [list, setList] = useState(false);
@@ -27,17 +26,17 @@ const App = () => {
     };
 
     return (
-        <>
+        <div className="bg-slate-900 text-white">
             {list ? <List /> : <Controls />}
             <div className="text-center py-10">
-                <Button
+                <button
                     onClick={switchList}
                     // className="bg-white text-slate-900 px-3 py-4"
                 >
                     {list ? 'Show controls' : 'Show List'}
-                </Button>
+                </button>
             </div>
-        </>
+        </div>
     );
 };
 
