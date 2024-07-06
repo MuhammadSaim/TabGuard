@@ -2,7 +2,7 @@ import { Box, Button } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import Controls from './components/shared/Controls';
 import List from './components/shared/List';
-import { config } from './constants/config';
+import { decrypt, encrypt } from './lib/encryption';
 
 const App = () => {
     const [list, setList] = useState(false);
@@ -12,8 +12,13 @@ const App = () => {
     };
 
     useEffect(() => {
-        console.log(config.encryptionKey);
-    });
+        let text: string = 'This is my test message';
+
+        let encrypted: string = encrypt(text);
+
+        console.log('Encrypted Message: ' + encrypted);
+        console.log('Decrypt Message: ' + decrypt(encrypted));
+    }, [list]);
 
     return (
         <Box bg="#0f172a" minW={600} minH={380} px={10} py={15} color="white">
